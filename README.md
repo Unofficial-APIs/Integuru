@@ -2,7 +2,7 @@
 
 An AI agent that reverse-engineers third-party platform's internal APIs for building integrations.
 
-## What Integration Agent Does
+## What Integuru Does
 
 When provided with a .har file containing all browser network requests and a prompt describing the desired action, the agent outputs the dependency graph of all network requests. It can also generate code that hits all the endpoints, though the code generation feature is still experimental.
 
