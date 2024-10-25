@@ -1,4 +1,4 @@
-# Integration Agent
+# Integuru
 
 An AI agent that reverse-engineers third-party platform's internal APIs for building integrations.
 
