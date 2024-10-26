@@ -1,21 +1,35 @@
 from typing import List
 from integration_agent.graph_builder import build_graph
+from integration_agent.util.LLM import llm
 
-async def call_agent(har_file_path: str, max_steps: int = 8):
-    graph = build_graph(har_file_path)
+agent = None
+
+async def call_agent(
+    model: str,
+    prompt: str,
+    har_file_path: str,
+    cookie_path: str,
+    input_variables: dict = None,
+    max_steps: int = 15,
+    to_generate_code: bool = False,
+):  
+    
+    llm.set_model(model)
+    global agent
+    graph, agent = build_graph(prompt, har_file_path, cookie_path, to_generate_code)
     event_stream = graph.astream(
         {
-            "masterNode": None,
-            "inProcessNode": None,
-            "InProcessNodes": [],
-            "childToBeProcessedNodes": [],
-            "searchString": [],
-            # "allUrlList": listOfUrls,
-            "downloadUrl": "",
+            "master_node": None,
+            "in_process_node": None,
+            "to_be_processed_nodes": [],
+            "in_process_node_dynamic_parts": [],
+            "action_url": "",
+            "input_variables": input_variables or {},  
         },
         {
             "recursion_limit": max_steps,
         },
     )
     async for event in event_stream:
-        print("+++", event)
+        # print("+++", event)
+        pass

@@ -153,3 +153,10 @@ cython_debug/
 #.idea/
 
 *.har
+*.json
+*.png
+# Temporary files
+temp*
+
+
+saved_files/

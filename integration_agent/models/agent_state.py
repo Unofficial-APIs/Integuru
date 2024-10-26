@@ -1,13 +1,9 @@
-from typing import List, Optional, TypedDict
-from integration_agent.models.tree_map import TreeNode
-
+from typing import List, Optional, TypedDict, Dict
 
 class AgentState(TypedDict):
-    masterNode: TreeNode  # User request
-    inProcessNode: TreeNode
-    InProcessNodes: List[TreeNode]
-    childToBeProcessedNodes: List[TreeNode]
-    # to find the cUrl
-    searchString: List[str]
-    # allUrlList: List[str]
-    downloadUrl: str
+    master_node: str 
+    in_process_node: str
+    to_be_processed_nodes: List[str]
+    in_process_node_dynamic_parts: List[str]
+    action_url: str
+    input_variables: Dict[str, str]

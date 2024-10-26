@@ -13,6 +13,10 @@ langgraph = "^0.2.22"
 langsmith = "^0.1.122"
 python-dotenv = "^1.0.1"
 click = "^8.1.7"
+playwright = "^1.47.0"
+networkx = "^3.3"
+matplotlib = "^3.9.2"
+ipykernel = "^6.29.5"
 
 
 [build-system]
